@@ -1,38 +1,235 @@
-.App {
+/*
+  === DARK ===
+  1. 36454f - 60 (Gunmetal)
+  2. 5b7586 - 30 (Teal Blue)
+  3. a7b8c3 - 10 (Queen Pink)
+*/
+
+/* 
+  === LIGHT ===
+  1. F2EFE9 - 60 (Queen Pink)
+  2. 252627 - 30 (Teal Blue)
+  3. BFB48F - 10 (Gunmetal)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap');
+
+:root {
+  --secondary-color: #040a18; /* 60 */
+  --primary-color: #05263b; /* 30 */
+  --accent-color: #43758a; /* 10 */
+  --text-color: #ecf3fb;
+  --leave-color: rgba(179, 40, 40, 0.781);
+
+  /* Margin */
+  --sm: 8px;
+  --md: 12px;
+  --lg: 16px;
+  --xlg: 22px;
+
+  /* Padding */
+  --sm: 8px;
+  --md: 12px;
+  --lg: 16px;
+  --xlg: 22px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #0c0e0c;
+}
+
+li {
+  list-style-type: none;
+}
+
+.btn {
+  background-color: transparent;
+  height: 36px;
+  min-width: 100px;
+  outline: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.45px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: block;
+  transition: all 0.5s ease-in-out;
+}
+
+.homepage__wrapper {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--primary-color);
+  width: 500px;
+  max-width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: var(--xlg);
+  border-radius: 12px;
+}
+
+.homepage__wrapper-logoContainer,
+.editorpage__sidebar-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+  margin-bottom: var(--lg);
+}
+
+.homepage__wrapper-logoContainer img,
+.editorpage__sidebar-logo-container img {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+}
+
+.homepage__wrapper-formContainer {
+  width: 100%;
+}
+
+.homepage__wrapper-formContainer > h4 {
+  color: var(--text-color);
+  margin-bottom: var(--xlg);
+}
+
+.homepage__wrapper-form input {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--lg);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--secondary-color);
+
+  padding: var(--md);
+  border-radius: var(--sm);
+  outline: none;
+  border: none;
+}
+
+.homepage__wrapper-form-btn {
+  background-color: var(--accent-color);
+  border-radius: var(--sm);
+  color: var(--secondary-color);
+  margin: 0 0 var(--xlg) auto;
+  font-weight: 700;
+}
+
+.homepage__wrapper-form-btn:hover {
+  background-color: rgb(45, 105, 140);
+}
+
+.homepage__wrapper-inviteText {
+  color: var(--text-color);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+
+.homepage__wrapper-inviteText a {
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  transition: all 0.4s ease-in-out;
+}
+
+.homepage__wrapper-inviteText a:hover {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  text-decoration: underline;
+}
+
+/* Editor page styling */
+
+.editorpage__wrapper {
+  font-family: 'Nunito', sans-serif;
+  color: var(--text-color);
+  min-height: 100vh;
+  min-width: 100vw;
+
+  display: flex;
+}
+
+.editorpage__code-editor {
+  flex: 1;
+}
+
+.editorpage__sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: var(--sm);
+  background-color: var(--primary-color);
+  width: 250px;
+}
+
+.editorpage__sidebar-logo-container {
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.editorpage__sidebar-connected-text {
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: var(--lg);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.editorpage__sidebar-clients {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-top: 2px solid var(--accent-color);
+  padding-top: var(--lg);
+  flex: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.editorpage__btn-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.editorpage__btn-roomid,
+.editorpage__btn-leave {
+  background-color: var(--accent-color);
+  height: 45px;
+  border-radius: 5px;
+  margin-bottom: var(--lg);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.editorpage__btn-leave {
+  background-color: var(--leave-color);
+  color: var(--text-color);
+  margin-bottom: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.CodeMirror {
+  width: calc(100vw - 250px);
+  min-height: 100vh;
+  font-size: 20px;
+  line-height: 1.6;
+  padding-top: var(--lg);
 }
