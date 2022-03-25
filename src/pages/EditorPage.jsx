@@ -13,6 +13,7 @@ import { Client, Editor } from './../components';
 
 const EditorPage = () => {
   const socketRef = useRef();
+  const codeRef = useRef();
   const location = useLocation();
   const reactNavigator = useNavigate();
 
@@ -47,6 +48,10 @@ const EditorPage = () => {
           }
 
           setClientsList(clients);
+          socketRef.current.emit(ACTIONS.SYNC_CODE, {
+            code: codeRef.current,
+            socketId,
+          });
         }
       );
 
@@ -59,16 +64,37 @@ const EditorPage = () => {
     };
 
     init();
+
+    return () => {
+      socketRef.current.disconnect();
+      socketRef.current.off(ACTIONS.JOINED);
+      socketRef.current.off(ACTIONS.DISCONNECTED);
+    };
   }, [location.state?.username, reactNavigator, roomId, username]);
 
-  if (!location.state.username) {
-    <Navigate to='/' />;
+  const copyRoomId = async () => {
+    try {
+      await navigator.clipboard.writeText(roomId);
+      toast.success('Room ID has been copied to clipboard');
+    } catch (error) {
+      toast.error("Couldn't copy Room ID");
+    }
+  };
+
+  const leaveRoom = () => reactNavigator('/');
+
+  if (!location.state) {
+    return <Navigate to='/' />;
   }
 
   return (
     <div className='editorpage__wrapper'>
       <div className='editorpage__code-editor'>
-        <Editor />
+        <Editor
+          socketRef={socketRef}
+          roomId={roomId}
+          onCodeChange={(code) => (codeRef.current = code)}
+        />
       </div>
       <div className='editorpage__sidebar'>
         <div className='editorpage__sidebar-logo-container'>
@@ -81,8 +107,12 @@ const EditorPage = () => {
           })}
         </div>
         <div className='editorpage__btn-container'>
-          <button className='btn editorpage__btn-roomid'>Copy Room ID</button>
-          <button className='btn editorpage__btn-leave'>Leave</button>
+          <button className='btn editorpage__btn-roomid' onClick={copyRoomId}>
+            Copy Room ID
+          </button>
+          <button className='btn editorpage__btn-leave' onClick={leaveRoom}>
+            Leave
+          </button>
         </div>
       </div>
     </div>
