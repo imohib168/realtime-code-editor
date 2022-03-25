@@ -28,6 +28,22 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--leave-color);
+}
+
 body {
   background-color: var(--secondary-color);
   display: flex;
@@ -170,6 +186,10 @@ li {
   padding: var(--sm);
   background-color: var(--primary-color);
   width: 250px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 .editorpage__sidebar-logo-container {
@@ -193,12 +213,15 @@ li {
   border-top: 2px solid var(--accent-color);
   padding-top: var(--lg);
   flex: 1;
+  min-height: 50px;
+  overflow-y: scroll;
+  /* background-color: yellow; */
 }
 
 .editorpage__btn-container {
   display: flex;
   flex-direction: column;
-  padding: 0px 10px;
+  padding: 20px 10px 0px;
 }
 
 .editorpage__btn-roomid,
@@ -220,7 +243,7 @@ li {
 
 .CodeMirror {
   width: calc(100vw - 250px);
-  min-height: 100vh;
+  min-height: 100%;
   font-size: 20px;
   line-height: 1.6;
   padding-top: var(--lg);
