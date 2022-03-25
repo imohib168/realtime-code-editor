@@ -10,6 +10,7 @@
 
 .client__cpn-username {
   margin-top: var(--md);
+  text-align: center;
 }
 
 .avatar__cpn {
