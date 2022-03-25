@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start:front": "react-scripts start",
-    "start": "yarn build && yarn prod",
+    "start": "npm run build && npm prod",
     "build": "react-scripts build",
     "dev": "nodemon server.js",
     "prod": "node server.js",
