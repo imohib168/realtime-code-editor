@@ -19,7 +19,8 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start:front": "react-scripts start",
+    "start": "yarn build && yarn prod",
     "build": "react-scripts build",
     "dev": "nodemon server.js",
     "prod": "node server.js",

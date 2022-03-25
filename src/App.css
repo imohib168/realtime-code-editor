@@ -1,17 +1,11 @@
 /*
-  === DARK ===
-  1. 36454f - 60 (Gunmetal)
-  2. 5b7586 - 30 (Teal Blue)
-  3. a7b8c3 - 10 (Queen Pink)
+  === COLOR THEME ===
+  1. 040a18 - 60 (Gunmetal)
+  2. 05263b - 30 (Teal Blue)
+  3. 43758a - 10 (Queen Pink)
 */
 
-/* 
-  === LIGHT ===
-  1. F2EFE9 - 60 (Queen Pink)
-  2. 252627 - 30 (Teal Blue)
-  3. BFB48F - 10 (Gunmetal)
-*/
-
+/* Font: Nunito */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap');
 
 :root {
@@ -19,15 +13,9 @@
   --primary-color: #05263b; /* 30 */
   --accent-color: #43758a; /* 10 */
   --text-color: #ecf3fb;
-  --leave-color: rgba(179, 40, 40, 0.781);
+  --leave-color: rgba(155, 33, 33, 0.781);
 
-  /* Margin */
-  --sm: 8px;
-  --md: 12px;
-  --lg: 16px;
-  --xlg: 22px;
-
-  /* Padding */
+  /* Margin & Padding */
   --sm: 8px;
   --md: 12px;
   --lg: 16px;
@@ -47,6 +35,7 @@ body {
   align-items: center;
   height: 100vh;
   overflow-x: hidden;
+  font-family: 'Nunito', sans-serif;
 }
 
 a {
@@ -209,6 +198,7 @@ li {
 .editorpage__btn-container {
   display: flex;
   flex-direction: column;
+  padding: 0px 10px;
 }
 
 .editorpage__btn-roomid,
@@ -219,6 +209,8 @@ li {
   margin-bottom: var(--lg);
   font-weight: 700;
   letter-spacing: 0.5px;
+  text-transform: capitalize;
+  letter-spacing: 0.4px;
 }
 .editorpage__btn-leave {
   background-color: var(--leave-color);
