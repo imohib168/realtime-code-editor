@@ -11,11 +11,12 @@ import { initSocket } from '../socket';
 import Logo from './../assets/logo.png';
 import { Client, Editor } from './../components';
 
-const EditorPage = () => {
+const EditorPage = ({ isSidebarLeft }) => {
   const socketRef = useRef();
   const codeRef = useRef();
   const location = useLocation();
   const reactNavigator = useNavigate();
+  const selectedTheme = localStorage.getItem('editorTheme');
 
   const [clientsList, setClientsList] = useState([]);
 
@@ -70,7 +71,13 @@ const EditorPage = () => {
       socketRef.current.off(ACTIONS.JOINED);
       socketRef.current.off(ACTIONS.DISCONNECTED);
     };
-  }, [location.state?.username, reactNavigator, roomId, username]);
+  }, [
+    location.state?.username,
+    reactNavigator,
+    roomId,
+    username,
+    selectedTheme,
+  ]);
 
   const copyRoomId = async () => {
     try {
@@ -89,14 +96,24 @@ const EditorPage = () => {
 
   return (
     <div className='editorpage__wrapper'>
-      <div className='editorpage__code-editor'>
+      <div
+        className='editorpage__code-editor'
+        style={{
+          marginLeft: `${isSidebarLeft ? '250px' : '0px'}`,
+        }}
+      >
         <Editor
           socketRef={socketRef}
           roomId={roomId}
           onCodeChange={(code) => (codeRef.current = code)}
         />
       </div>
-      <div className='editorpage__sidebar'>
+
+      <div
+        className={`${
+          isSidebarLeft ? 'editorpage__sidebar-left' : 'editorpage__sidebar'
+        }`}
+      >
         <div className='editorpage__sidebar-logo-container'>
           <img src={Logo} alt='logo' />
         </div>

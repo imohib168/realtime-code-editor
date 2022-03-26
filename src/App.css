@@ -14,6 +14,7 @@
   --accent-color: #43758a; /* 10 */
   --text-color: #ecf3fb;
   --leave-color: rgba(155, 33, 33, 0.781);
+  --light-color: #195072; /* 30 */
 
   /* Margin & Padding */
   --sm: 8px;
@@ -52,6 +53,23 @@ body {
   height: 100vh;
   overflow-x: hidden;
   font-family: 'Nunito', sans-serif;
+}
+
+.setting__icon {
+  background-color: var(--secondary-color);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  bottom: 10px;
+  font-size: 20px;
+
+  cursor: pointer;
 }
 
 a {
@@ -192,6 +210,18 @@ li {
   bottom: 0;
 }
 
+.editorpage__sidebar-left {
+  display: flex;
+  flex-direction: column;
+  padding: var(--sm);
+  background-color: var(--primary-color);
+  width: 250px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
 .editorpage__sidebar-logo-container {
   border-bottom: 2px solid var(--accent-color);
 }
@@ -215,7 +245,6 @@ li {
   flex: 1;
   min-height: 50px;
   overflow-y: scroll;
-  /* background-color: yellow; */
 }
 
 .editorpage__btn-container {
@@ -247,4 +276,52 @@ li {
   font-size: 20px;
   line-height: 1.6;
   padding-top: var(--lg);
+}
+
+/*  */
+
+.sidebar__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar__position-label {
+  font-size: 17px;
+}
+
+.radio__option-text {
+  font-size: 14px;
+}
+
+.theme__select-options {
+  margin-top: 20px;
+}
+
+.theme__select-options select {
+  outline: none;
+  border: none;
+  font-family: 'Nunito';
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: var(--light-color);
+  color: var(--text-color);
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.theme__select-options select option {
+  padding: 10px 0px;
+}
+
+.theme__select-options select:focus,
+.theme__select-options select:focus-within,
+.theme__select-options select:focus-visible {
+  outline: none;
+  border: none;
 }

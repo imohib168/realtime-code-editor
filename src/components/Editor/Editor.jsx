@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import Codemirror from 'codemirror';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/paraiso-dark.css';
+import 'codemirror/theme/blackboard.css';
+import 'codemirror/theme/yonce.css';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/addon/edit/closetag';
 import 'codemirror/addon/edit/closebrackets';
@@ -16,7 +18,7 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
         document.getElementById('realtimeEditor'),
         {
           mode: { name: 'javascript', json: true },
-          theme: 'paraiso-dark',
+          theme: localStorage.getItem('editorTheme'),
           autoCloseTags: true,
           autoCloseBrackets: true,
           lineNumbers: true,
@@ -34,7 +36,7 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
     }
 
     init();
-  }, [roomId, socketRef]);
+  }, [onCodeChange, roomId, socketRef]);
 
   useEffect(() => {
     if (socketRef.current) {

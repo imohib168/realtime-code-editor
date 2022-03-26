@@ -13,7 +13,8 @@ const HomePage = () => {
   const createNewRoom = (e) => {
     e.preventDefault();
     const roomId = uuidV4();
-    setRoomId(roomId);
+    const roomModifiedId = `room-${roomId.split('-')[0]}`;
+    setRoomId(roomModifiedId);
     toast.success('Created a new room.');
   };
 
