@@ -56,7 +56,20 @@ const SettingModalContent = ({
     setCurrentTheme(e.target.value);
 
     localStorage.setItem('editorTheme', e.target.value);
+
+    window.location.reload(false);
   };
+
+  const handleSidebarPosition = () => {
+    setisSidebarLeft((prevState) => {
+      setisSidebarLeft(!prevState);
+
+      localStorage.setItem('sidebarPosition', !prevState);
+
+      window.location.reload(false);
+    });
+  };
+
   return (
     <>
       <div className='sidebar__option'>
@@ -80,7 +93,7 @@ const SettingModalContent = ({
           <p className='radio__option-text'>Left</p>
           <AntSwitch
             checked={!isSidebarLeft ? true : false}
-            onChange={() => setisSidebarLeft((prevState) => !prevState)}
+            onChange={handleSidebarPosition}
           />
           <p className='radio__option-text'>Right</p>
         </Stack>

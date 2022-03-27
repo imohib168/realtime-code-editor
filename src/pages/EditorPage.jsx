@@ -16,7 +16,6 @@ const EditorPage = ({ isSidebarLeft }) => {
   const codeRef = useRef();
   const location = useLocation();
   const reactNavigator = useNavigate();
-  const selectedTheme = localStorage.getItem('editorTheme');
 
   const [clientsList, setClientsList] = useState([]);
 
@@ -71,13 +70,7 @@ const EditorPage = ({ isSidebarLeft }) => {
       socketRef.current.off(ACTIONS.JOINED);
       socketRef.current.off(ACTIONS.DISCONNECTED);
     };
-  }, [
-    location.state?.username,
-    reactNavigator,
-    roomId,
-    username,
-    selectedTheme,
-  ]);
+  }, [location.state?.username, reactNavigator, roomId, username]);
 
   const copyRoomId = async () => {
     try {

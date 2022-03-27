@@ -3,21 +3,20 @@ import { EditorPage, HomePage } from './pages';
 import { Settings, ToastContainer } from './components';
 
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function App() {
-  const [isSidebarLeft, setisSidebarLeft] = useState(false);
+  const positionSidebar = localStorage.getItem('sidebarPosition');
+
+  const [isSidebarLeft, setisSidebarLeft] = useState(
+    JSON.parse(positionSidebar) === true
+  );
+  console.log({ positionSidebar, isSidebarLeft });
 
   const selectedTheme = localStorage.getItem('editorTheme');
-
   const [currentTheme, setCurrentTheme] = useState(
     selectedTheme || 'paraiso-dark'
   );
-
-  // useEffect(() => {
-  //   const selectedThemeA = localStorage.getItem('editorTheme');
-  //   setCurrentTheme(selectedThemeA);
-  // }, [selectedTheme]);
 
   return (
     <>
