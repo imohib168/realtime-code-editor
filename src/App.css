@@ -14,6 +14,8 @@
   --accent-color: #43758a; /* 10 */
   --text-color: #ecf3fb;
   --leave-color: rgba(155, 33, 33, 0.781);
+  --green-color: rgba(105, 228, 89, 0.849);
+  --green-dim-color: rgba(48, 136, 36, 0.459);
   --light-color: #195072; /* 30 */
 
   /* Margin & Padding */
@@ -227,7 +229,7 @@ li {
 }
 
 .editorpage__sidebar-connected-text {
-  color: var(--text-color);
+  color: var(--green-color);
   font-weight: 700;
   font-size: 20px;
   letter-spacing: 0.4px;
@@ -255,19 +257,21 @@ li {
 
 .editorpage__btn-roomid,
 .editorpage__btn-leave {
-  background-color: var(--accent-color);
+  background-color: var(--secondary-color);
+  color: var(--accent-color);
   height: 45px;
   border-radius: 5px;
   margin-bottom: var(--lg);
   font-weight: 700;
   letter-spacing: 0.5px;
-  text-transform: capitalize;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.8px;
 }
 .editorpage__btn-leave {
-  background-color: var(--leave-color);
-  color: var(--text-color);
+  background-color: var(--secondary-color);
+  color: var(--light-color);
   margin-bottom: 0;
+  letter-spacing: 1.8px;
+  height: 40px;
 }
 
 .CodeMirror {
